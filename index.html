@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conta Corrente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conta Corrente</h1>
+    <form id="saque-form">
+        <label for="chave-pix">Chave PIX:</label>
+        <input type="text" id="chave-pix" placeholder="Insira sua chave PIX">
+        <br><br>
+        <label for="valor-saque">Valor do Saque:</label>
+        <input type="number" id="valor-saque" placeholder="Insira o valor do saque">
+        <br><br>
+        <button id="saque-button">Realizar Saque</button>
+    </form>
+    <div id="saque-result"></div>
+
+    <script>
+        const saqueForm = document.getElementById('saque-form');
+        const saqueButton = document.getElementById('saque-button');
+        const saqueResult = document.getElementById('saque-result');
+
+        saqueButton.addEventListener('click', async () => {
+            const chavePix = document.getElementById('chave-pix').value;
+            const valorSaque = parseInt(document.getElementById('valor-saque').value);
+
+            if (!chavePix || !valorSaque) {
+                saqueResult.textContent = 'Preencha todos os campos!';
+                return;
+            }
+
+            // conta real the PIX transaction (replace with your actual API call)
+            await new Promise(resolve => setTimeout(resolve, 5000)); // conta real a 5-second delay
+            saqueResult.textContent = Saque realizado com sucesso! Valor: R$${valorSaque};
+        });
+    </script>
+</body>
+</html>
